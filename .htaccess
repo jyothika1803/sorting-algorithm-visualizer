@@ -2,11 +2,8 @@
   RewriteEngine On
   RewriteBase /
 
-  # Allow direct access to index.html
-  RewriteRule ^index\.html$ - [L]
-
-  # Redirect all non-existing files or directories to index.html
+  # Redirect all requests to index.html except actual files and directories
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ /index.html [L,QSA]
+  RewriteRule ^.*$ /index.html [L]
 </IfModule>
